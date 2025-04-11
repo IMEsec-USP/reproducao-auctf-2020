@@ -20,6 +20,8 @@ RUN chmod 755 /home/level5/portforce.sh
 RUN chmod 700 /home/level5/flag.txt && \
     chown root:root /home/level5/flag.txt
 
+RUN chmod a-w /home/level5
+
 RUN echo "level5 ALL=(ALL) NOPASSWD: /home/level5/portforce.sh" >> /etc/sudoers
 
 
@@ -39,6 +41,8 @@ RUN chmod 755 /home/level4/print_file.sh
 
 RUN chmod 700 /home/level4/flag.txt && \
     chown root:root /home/level4/flag.txt
+
+RUN chmod a-w /home/level4
 
 RUN echo "level4 ALL=(ALL) NOPASSWD: /home/level4/print_file.sh" >> /etc/sudoers
 
@@ -60,6 +64,8 @@ RUN chmod 755 /home/level3/passcodes.sh
 RUN chmod 700 /home/level3/flag.txt && \
     chown root:root /home/level3/flag.txt
 
+RUN chmod a-w /home/level3
+
 RUN echo "level3 ALL=(ALL) NOPASSWD: /home/level3/passcodes.sh" >> /etc/sudoers
 
 
@@ -80,6 +86,8 @@ RUN chmod 755 /home/level2/random_dirs.sh
 RUN chmod 700 /home/level2/flag.txt && \
     chown root:root /home/level2/flag.txt
 
+RUN chmod a-w /home/level2
+
 RUN echo "level2 ALL=(ALL) NOPASSWD: /home/level2/random_dirs.sh" >> /etc/sudoers
 
 
@@ -97,6 +105,8 @@ COPY level1/ /home/level1
 RUN echo 'level1:imesec' | chpasswd
 
 RUN chmod 444 /home/level1/README
+
+RUN chmod a-w /home/level1
 
 # Gerar as chaves de host para o SSH
 RUN ssh-keygen -A
